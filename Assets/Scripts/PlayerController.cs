@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float saltoVelocidad = 7f;
     public float maxVelocidad = 10f;
     private float movHorizontal = 0f;
-    private float movVertical = 0f; 
+    private float movVertical = 0f;
     private bool mirandoDerecha = true;
 
     // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
@@ -21,9 +19,10 @@ public class PlayerController : MonoBehaviour
     private bool isSuelo;
     public Transform checkSuelo;
     public float checkRadio;
-    public LayerMask objetosSuelo; 
+    public LayerMask objetosSuelo;
 
-    void Awake(){
+    void Awake()
+    {
         // Obtener el cuerpo del jugador
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
@@ -37,16 +36,17 @@ public class PlayerController : MonoBehaviour
     }
 
     // Aqui van los cambios al personaje
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
-
+        Debug.Log(isSuelo);
         rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
 
         if (movVertical > 0 && isSuelo == true)
         {
             rigidBody2D.velocity = Vector2.up * saltoVelocidad;
         }
-        
+
         if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
         {
             Voltear();
@@ -60,10 +60,11 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isSuelo", isSuelo);
     }
 
-    void Voltear(){
+    void Voltear()
+    {
         mirandoDerecha = !mirandoDerecha;
         Vector3 Scaler = transform.localScale; // Valores de x, y, z, para el scale
         Scaler.x *= -1;
-        transform.localScale = Scaler; 
+        transform.localScale = Scaler;
     }
 }
