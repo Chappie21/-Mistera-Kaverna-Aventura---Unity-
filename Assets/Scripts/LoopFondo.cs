@@ -9,7 +9,6 @@ public class LoopFondo : MonoBehaviour
     private Vector2 screenBounds;
     public float choke;
     public float scrollSpeed;
-
     void Start()
     {
         mainCamera = gameObject.GetComponent<Camera>();
