@@ -8,13 +8,13 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     // void Start()
     // {
-        
+
     // }
 
-    // // Update is called once per frame
+    // Update is called once per frame
     // void Update()
     // {
-        
+
     // }
 
     public void IniciarJuego()
@@ -25,7 +25,8 @@ public class Menu : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void SalirDelJuego(){
+    public void SalirDelJuego()
+    {
         Debug.Log("Salir del juego");
         Application.Quit();
     }
