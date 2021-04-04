@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 55b050ef0d32396418035368c8bfde0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5410879872581003127
+    second: PhantomDragonSprite_Moving_0
+  - first:
+      213: 8437748009329421912
+    second: PhantomDragonSprite_Moving_1
+  - first:
+      213: -5788291418438709609
+    second: PhantomDragonSprite_Moving_2
+  - first:
+      213: -740959767699418454
+    second: PhantomDragonSprite_Moving_3
+  - first:
+      213: -2235969802855011668
+    second: PhantomDragonSprite_Moving_4
+  - first:
+      213: 647108244808813102
+    second: PhantomDragonSprite_Moving_5
+  - first:
+      213: 1847895462453501362
+    second: PhantomDragonSprite_Moving_6
+  - first:
+      213: 5560818105232049030
+    second: PhantomDragonSprite_Moving_7
+  - first:
+      213: -8139173352018673912
+    second: PhantomDragonSprite_Moving_8
+  - first:
+      213: -2261836802412242240
+    second: PhantomDragonSprite_Moving_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 188
+        height: 199
+      alignment: 9
+      pivot: {x: 0.4999999, y: 0.4740835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9889f788c61b8e4b0800000000000000
+      internalID: -5410879872581003127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 183
+        height: 199
+      alignment: 9
+      pivot: {x: 0.4943939, y: 0.4844501}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ee6500c17e81570800000000000000
+      internalID: 8437748009329421912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_2
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 184
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ec4836f9bdbafa0800000000000000
+      internalID: -5788291418438709609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_3
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 0
+        width: 202
+        height: 199
+      alignment: 9
+      pivot: {x: 0.55, y: 0.48599693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa29b6d540597b5f0800000000000000
+      internalID: -740959767699418454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_4
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 0
+        width: 190
+        height: 199
+      alignment: 9
+      pivot: {x: 0.55, y: 0.49614996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaa35c9f4d38f0e0800000000000000
+      internalID: -2235969802855011668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_5
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 0
+        width: 202
+        height: 197
+      alignment: 9
+      pivot: {x: 0.55, y: 0.44086483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a4e07258dfaf800800000000000000
+      internalID: 647108244808813102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_6
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 0
+        width: 183
+        height: 199
+      alignment: 9
+      pivot: {x: 0.55, y: 0.43261722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bdd89de12b05a910800000000000000
+      internalID: 1847895462453501362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_7
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 0
+        width: 182
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5056359, y: 0.35486782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683caeeaa9efb2d40800000000000000
+      internalID: 5560818105232049030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_8
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 0
+        width: 191
+        height: 199
+      alignment: 9
+      pivot: {x: 0.51063335, y: 0.375601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ff993a5f8db0f80800000000000000
+      internalID: -8139173352018673912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhantomDragonSprite_Moving_9
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 0
+        width: 181
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca105479675c90e0800000000000000
+      internalID: -2261836802412242240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

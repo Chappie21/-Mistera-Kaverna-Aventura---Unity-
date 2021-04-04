@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody2D;
 
     // Variables globales, si son públicas se pueden cambiar desde Unity
+    public int vidaMaxima = 100;
+    private int vidaActual;
     public float saltoVelocidad = 7f;
     public float maxVelocidad = 10f;
     private float movHorizontal = 0f;
@@ -21,10 +23,16 @@ public class PlayerController : MonoBehaviour
     public float checkRadio;
     public LayerMask objetosSuelo;
 
+    // Para comprobar si se ha atacado
+    private PlayerCombate playerCombate;
+    public GameObject deadParticulas;
+
     void Awake()
     {
         // Obtener el cuerpo del jugador
+        vidaActual = vidaMaxima;
         rigidBody2D = GetComponent<Rigidbody2D>();
+        playerCombate = GetComponent<PlayerCombate>();
     }
 
     // En el update va el input del usuario
@@ -32,21 +40,22 @@ public class PlayerController : MonoBehaviour
     {
         movHorizontal = Input.GetAxisRaw("Horizontal");
         // ^ si se presiona "a" o "flechaIzq" retorna -1, y si se presiona "d" o "flechaDer" retorna 1 
-        movVertical = Input.GetAxisRaw("Vertical");
+        movVertical = Input.GetAxisRaw("Jump");
     }
 
     // Aqui van los cambios al personaje
     void FixedUpdate()
     {
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
-        Debug.Log(isSuelo);
-        rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
-
-        if (movVertical > 0 && isSuelo == true)
+        // Si se está atacando, no mover al jugador
+        if (!playerCombate.isAttacking)
         {
-            rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+            rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
+            if (movVertical > 0 && isSuelo == true)
+            {
+                rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+            }
         }
-
         if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
         {
             Voltear();
@@ -66,5 +75,21 @@ public class PlayerController : MonoBehaviour
         Vector3 Scaler = transform.localScale; // Valores de x, y, z, para el scale
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    public void damagePlayer(int damageRecieved)
+    {
+        vidaActual -= damageRecieved;
+        Debug.Log($"Vida player = {vidaActual}");
+        if (vidaActual <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Instantiate(deadParticulas, this.transform.position, this.transform.rotation);
+        Debug.Log("HE MUERTO XD");
+        Destroy(gameObject);
     }
 }
