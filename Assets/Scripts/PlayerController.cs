@@ -5,8 +5,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody2D;
 
     // Variables globales, si son públicas se pueden cambiar desde Unity
-    public int vidaMaxima = 100;
-    private int vidaActual;
+    public static int vidaMaxima = 100;
+    public static int vidaActual = vidaMaxima;
     public float saltoVelocidad = 7f;
     public float maxVelocidad = 10f;
     private float movHorizontal = 0f;
