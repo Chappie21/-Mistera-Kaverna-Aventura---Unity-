@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private float movVertical = 0f;
     private bool mirandoDerecha = true;
 
+    public static int concentracion=0;
+
     // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
     public Animator animator;
 
