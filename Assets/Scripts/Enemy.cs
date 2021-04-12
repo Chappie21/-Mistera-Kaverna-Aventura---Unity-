@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     {
         vidaActual -= damage;
         Debug.Log($"Vida enemigo = {vidaActual}");
+        PlayerController.concentracion++;
+        BarraConcentracion.contadorConcentracion=0;
         if (vidaActual <= 0)
         {
             Die();

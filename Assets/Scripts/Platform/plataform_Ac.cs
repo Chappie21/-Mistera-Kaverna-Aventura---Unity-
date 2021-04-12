@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class plataform_Ac : MonoBehaviour
 {
-    
+
     //referencias
     private PlatformEffector2D efecto;
- 
+
     //variables utilitarias
     public float tiempo_comienzo;
     public float tiempo_espera;
@@ -17,7 +17,6 @@ public class plataform_Ac : MonoBehaviour
     {
         if (colision.transform.CompareTag("Player"))
         {
-            Debug.Log("Colisiona con el jugador");
             colisiona = true;
         }
     }
@@ -26,17 +25,16 @@ public class plataform_Ac : MonoBehaviour
     {
         if (colision.transform.CompareTag("Player"))
         {
-            Debug.Log("no Colisiona con el jugador");
             colisiona = false;
         }
     }
 
     void Start()
     {
-        efecto= GetComponent<PlatformEffector2D>();
+        efecto = GetComponent<PlatformEffector2D>();
     }
 
-    
+
     void Update()
     {
         if (colisiona)

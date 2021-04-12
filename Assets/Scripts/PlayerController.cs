@@ -5,13 +5,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody2D;
 
     // Variables globales, si son públicas se pueden cambiar desde Unity
-    public int vidaMaxima = 100;
-    private int vidaActual;
+    public static int vidaMaxima = 100;
+    public static int vidaActual = vidaMaxima;
     public float saltoVelocidad = 7f;
     public float maxVelocidad = 10f;
     private float movHorizontal = 0f;
     private float movVertical = 0f;
     private bool mirandoDerecha = true;
+
+    public static int concentracion = 0;
 
     // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
     public Animator animator;
@@ -80,7 +82,6 @@ public class PlayerController : MonoBehaviour
     public void damagePlayer(int damageRecieved)
     {
         vidaActual -= damageRecieved;
-        Debug.Log($"Vida player = {vidaActual}");
         if (vidaActual <= 0)
         {
             Die();
@@ -89,7 +90,6 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         Instantiate(deadParticulas, this.transform.position, this.transform.rotation);
-        Debug.Log("HE MUERTO XD");
         Destroy(gameObject);
     }
 }

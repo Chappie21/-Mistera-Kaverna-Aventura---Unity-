@@ -19,10 +19,7 @@ public class Menu : MonoBehaviour
 
     public void IniciarJuego()
     {
-        //System.Threading.Thread.Sleep(5000);
         SceneManager.LoadScene(1);
-        Debug.Log("Escena");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void SalirDelJuego()
