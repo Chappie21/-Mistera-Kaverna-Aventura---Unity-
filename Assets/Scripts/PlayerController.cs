@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float movVertical = 0f;
     private bool mirandoDerecha = true;
 
-    public static int concentracion=0;
+    public static int concentracion = 0;
 
     // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
     public Animator animator;
@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour
     public void damagePlayer(int damageRecieved)
     {
         vidaActual -= damageRecieved;
-        Debug.Log($"Vida player = {vidaActual}");
         if (vidaActual <= 0)
         {
             Die();
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         Instantiate(deadParticulas, this.transform.position, this.transform.rotation);
-        Debug.Log("HE MUERTO XD");
         Destroy(gameObject);
     }
 }

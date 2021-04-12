@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 342762041}
   m_Layer: 6
   m_Name: Player_Drake
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,8 +253,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.18683946}
-  m_Size: {x: 0.29, y: 0.57394016}
+  m_Offset: {x: -0.021515682, y: -0.16801322}
+  m_Size: {x: 0.24696866, y: 0.53628767}
   m_Direction: 0
 --- !u!114 &7372926703786638971
 MonoBehaviour:
@@ -268,8 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b726659025f54254e92f5b5fde691f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 100
-  saltoVelocidad: 5
+  saltoVelocidad: 7
   maxVelocidad: 3
   animator: {fileID: 7372926703786639239}
   checkSuelo: {fileID: 7372926705448598814}
@@ -374,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7372926705448598814
 Transform:
   m_ObjectHideFlags: 0

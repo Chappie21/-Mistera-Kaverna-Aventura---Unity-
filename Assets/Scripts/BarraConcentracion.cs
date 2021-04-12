@@ -18,7 +18,6 @@ public class BarraConcentracion : MonoBehaviour
         while(PlayerController.concentracion>10){
             PlayerController.concentracion--;
         }
-        //Debug.Log(PlayerController.concentracion);
         slider.value = PlayerController.concentracion;
 
         if(Time.time > proximoConteo){
@@ -26,7 +25,6 @@ public class BarraConcentracion : MonoBehaviour
             if(contadorConcentracion<5){
                 contadorConcentracion++;
             }
-            //Debug.Log(contadorConcentracion);
 
             if(contadorConcentracion==5){
                 if(PlayerController.concentracion>0){

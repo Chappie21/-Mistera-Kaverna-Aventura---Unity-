@@ -12,8 +12,7 @@ public class SaludJugador : MonoBehaviour
     float cantidadLlenado;
     void Update()
     {
-        cantidadLlenado = (PlayerController.vidaActual+0.0f)/(PlayerController.vidaMaxima+0.0f);
-        Debug.Log(cantidadLlenado);
+        cantidadLlenado = (PlayerController.vidaActual + 0.0f) / (PlayerController.vidaMaxima + 0.0f);
         RellenoCorazon.fillAmount = cantidadLlenado;
     }
 }
