@@ -12,6 +12,8 @@ public class DashMove : MonoBehaviour{
     private PlayerController player;
     private int direction;
     private float MoveInput;
+    private float couldown = 0;
+    public float Timecouldown;
 
 
     void Start(){
@@ -22,40 +24,44 @@ public class DashMove : MonoBehaviour{
         this.dashTime = this.DashDuration;
     }
 
-   
-    void Update(){
-        
-    }
-
     private void FixedUpdate() {
 
-         if(!this.player.Dashing){
+        // relizar dash siempre y cuando no este en couldown
+        if(this.couldown <= 0){
 
-            if(Input.GetKeyDown(KeyCode.Z)){
+            // ! direccionar dash siempre y cuando *no se este en dash previo*
+            if(!   this.player.Dashing){
 
-                this.player.Dashing = true;
-                
-                if(this.player.getVista()){
-                    this.direction = 1;
+                if(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.K)){
+
+                    this.player.Dashing = true;
+                    
+                    if(this.player.getVista()){
+                        this.direction = 1;
+                    }else{
+                        this.direction = -1;
+                    }
+
+                }
+
+            }else{
+
+                // * reiniciar dash
+                if(this.dashTime <= 0){
+                    this.dashTime = this.DashDuration;
+                    this.body.velocity = Vector2.zero;
+                    this.player.Dashing = false;
+                    this.couldown = this.Timecouldown; // comenzar couldown
                 }else{
-                    this.direction = -1;
+
+                    this.dashTime -= Time.deltaTime;
+                    this.body.velocity = new Vector2(this.direction * this.DashVelocity, this.body.velocity.y);
+                    
                 }
 
             }
-
         }else{
-
-            if(this.dashTime <= 0){
-                this.dashTime = this.DashDuration;
-                this.body.velocity = Vector2.zero;
-                this.player.Dashing = false;
-            }else{
-
-                this.dashTime -= Time.deltaTime;
-                this.body.velocity = new Vector2(this.direction * this.DashVelocity, this.body.velocity.y);
-                
-            }
-
+            this.couldown -= Time.deltaTime; // restar tiempo de couldwon
         }
         
     }
