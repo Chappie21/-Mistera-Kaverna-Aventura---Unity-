@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // *Salto*
     // Dentro de Unity se creo un objeto "checkSuelo" pegado al jugador para saber si toca el suelo
     private bool isSuelo;
+    public bool Dashing;
     public Transform checkSuelo;
     public float checkRadio;
     public LayerMask objetosSuelo;
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour
         movHorizontal = Input.GetAxisRaw("Horizontal");
         // ^ si se presiona "a" o "flechaIzq" retorna -1, y si se presiona "d" o "flechaDer" retorna 1 
         movVertical = Input.GetAxisRaw("Jump");
+
+        this.animator.SetBool("Dashing", this.Dashing);
+
     }
 
     // Aqui van los cambios al personaje
@@ -50,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
         // Si se está atacando, no mover al jugador
-        if (!playerCombate.isAttacking)
+        if (!playerCombate.isAttacking && !this.Dashing)
         {
             rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
             if (movVertical > 0 && isSuelo == true)
@@ -92,4 +96,9 @@ public class PlayerController : MonoBehaviour
         Instantiate(deadParticulas, this.transform.position, this.transform.rotation);
         Destroy(gameObject);
     }
+
+    public bool getVista(){
+        return this.mirandoDerecha;
+    }
+
 }
