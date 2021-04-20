@@ -34,6 +34,7 @@ public class DashMove : MonoBehaviour{
 
                 if(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.K)){
 
+                    Physics2D.IgnoreLayerCollision(6, 8, true);
                     this.player.Dashing = true;
                     
                     if(this.player.getVista()){
@@ -48,6 +49,9 @@ public class DashMove : MonoBehaviour{
 
                 // * reiniciar dash
                 if(this.dashTime <= 0){
+
+                    Physics2D.IgnoreLayerCollision(6, 8, false);
+
                     this.dashTime = this.DashDuration;
                     this.body.velocity = Vector2.zero;
                     this.player.Dashing = false;
