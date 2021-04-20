@@ -10,6 +10,7 @@ public class DashMove : MonoBehaviour{
     public float DashVelocity;
     private float dashTime;
     private PlayerController player;
+    private int direction;
     private float MoveInput;
 
 
@@ -23,15 +24,24 @@ public class DashMove : MonoBehaviour{
 
    
     void Update(){
-        this.MoveInput = Input.GetAxis("Horizontal");
+        
     }
 
     private void FixedUpdate() {
 
          if(!this.player.Dashing){
 
-            if(Input.GetKeyDown(KeyCode.Z))
+            if(Input.GetKeyDown(KeyCode.Z)){
+
                 this.player.Dashing = true;
+                
+                if(this.player.getVista()){
+                    this.direction = 1;
+                }else{
+                    this.direction = -1;
+                }
+
+            }
 
         }else{
 
@@ -42,10 +52,8 @@ public class DashMove : MonoBehaviour{
             }else{
 
                 this.dashTime -= Time.deltaTime;
-
-                if(this.player.Dashing){
-                    this.body.velocity = new Vector2(MoveInput * this.DashVelocity, this.body.velocity.y);
-                }
+                this.body.velocity = new Vector2(this.direction * this.DashVelocity, this.body.velocity.y);
+                
             }
 
         }
