@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         movHorizontal = Input.GetAxisRaw("Horizontal");
         // ^ si se presiona "a" o "flechaIzq" retorna -1, y si se presiona "d" o "flechaDer" retorna 1 
-        movVertical = Input.GetAxisRaw("Jump");
+        movVertical = Input.GetAxisRaw("Vertical");
     }
 
     // Aqui van los cambios al personaje
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             Voltear();
         }
         // Actualizar los parámetros para que funcionen las animaciones
-        animator.SetFloat("Velocidad", Mathf.Abs(movHorizontal));
+        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.magnitude));
         animator.SetBool("isSuelo", isSuelo);
     }
 
