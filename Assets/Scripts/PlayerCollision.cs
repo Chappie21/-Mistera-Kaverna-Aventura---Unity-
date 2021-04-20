@@ -8,11 +8,11 @@ public class PlayerCollision : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<PlayerController>();
+        player = GetComponentInParent<PlayerController>();
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.layer == 8 && !this.player.Dashing)
         {
             damageP = col.gameObject.GetComponent<Enemy>().damage;
             player.damagePlayer(damageP);

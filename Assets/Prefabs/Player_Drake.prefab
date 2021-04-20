@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 7029500655507761572}
   - component: {fileID: 437383254101357628}
   - component: {fileID: 342762041}
+  - component: {fileID: 11148177}
   m_Layer: 6
   m_Name: Player_Drake
   m_TagString: Player
@@ -238,7 +239,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -298,9 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b726659025f54254e92f5b5fde691f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saltoVelocidad: 7
+  saltoVelocidad: 8.5
   maxVelocidad: 3
   animator: {fileID: 7372926703786639239}
+  Dashing: 0
   checkSuelo: {fileID: 7372926705448598814}
   checkRadio: 0.1
   objetosSuelo:
@@ -388,6 +390,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   isAttacking: 0
+--- !u!114 &11148177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372926703786638970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ac3ccb922bb1440aaeb51d6b8da3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashDuration: 0.25
+  DashVelocity: 10
+  Timecouldown: 1.5
 --- !u!1 &7372926705448598801
 GameObject:
   m_ObjectHideFlags: 0
