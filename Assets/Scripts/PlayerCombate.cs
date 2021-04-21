@@ -7,33 +7,34 @@ public class PlayerCombate : MonoBehaviour
     public Animator animator;
     public bool isAttacking;
     private float attackTime;
-    private Weapon weapon;
-
-    // Start is called before the first frame update
+    private AnimatorOverrideController animatorOverrideController;
+    private WeaponSwitch weaponContainer;
+    private Weapon activeWeapon;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-        weapon = GetComponentInChildren<Weapon>();
+        weaponContainer = GetComponentInChildren<WeaponSwitch>();
         animator = GetComponent<Animator>();
+        animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        animator.runtimeAnimatorController = animatorOverrideController;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        activeWeapon = weaponContainer.activeWeapon.GetComponent<Weapon>();
+        attackTime = 1 / activeWeapon.velocidadAtaque;
         if (Input.GetButton("Fire1") && !isAttacking)
         {
-            attackTime = 1 / weapon.velocidadAtaque;
-            weapon.Attack();
+            animatorOverrideController["AtaquePorDefecto"] = activeWeapon.animationClip;
+            activeWeapon.Attack();
             isAttacking = true;
             StartCoroutine(finalizeAttacking(attackTime));
         }
     }
-
     private void FixedUpdate()
     {
         if (isAttacking)
         {
-            if (player.velocity.y > 0)
+            if (Mathf.Abs(player.velocity.y) > 0)
             {
                 player.velocity = Vector2.zero;
             }
@@ -43,7 +44,6 @@ public class PlayerCombate : MonoBehaviour
             }
         }
     }
-
     IEnumerator finalizeAttacking(float attackTime)
     {
         yield return new WaitForSeconds(attackTime);

@@ -6,9 +6,9 @@ public class Weapon : MonoBehaviour
     [Tooltip("Usado como 1 / velocidadAtaque")] public float velocidadAtaque;
     public float rangoAtaque;
     public Animator animator;
+    public AnimationClip animationClip;
     public Transform puntoAtaque;
     public LayerMask enemiesLayer;
-    // Update is called once per frame
     public void Attack()
     {
         animator.SetTrigger("Attack");

@@ -1,0 +1,417 @@
+fileFormatVersion: 2
+guid: e1f86c3a94ceecb49a15b1c883378571
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1302809965113561917
+    second: DragonFangSprite_0
+  - first:
+      213: 7824307850791090900
+    second: DragonFangSprite_1
+  - first:
+      213: -6356166341440220649
+    second: DragonFangSprite_2
+  - first:
+      213: -4174848739781695037
+    second: DragonFangSprite_3
+  - first:
+      213: 319890724710874591
+    second: DragonFangSprite_4
+  - first:
+      213: 1335270192546042992
+    second: DragonFangSprite_5
+  - first:
+      213: 573961323146203961
+    second: DragonFangSprite_6
+  - first:
+      213: -9058333699953079124
+    second: DragonFangSprite_7
+  - first:
+      213: 4098470719685456625
+    second: DragonFangSprite_8
+  - first:
+      213: -230854900532788436
+    second: DragonFangSprite_9
+  - first:
+      213: 2407749137579737223
+    second: DragonFangSprite_10
+  - first:
+      213: -8003418815422711947
+    second: dragonFang_0
+  - first:
+      213: 751428305113780141
+    second: dragonFang_1
+  - first:
+      213: -5173546081259053409
+    second: dragonFang_2
+  - first:
+      213: 448944941629182892
+    second: dragonFang_3
+  - first:
+      213: -5365604703590202463
+    second: dragonFang_4
+  - first:
+      213: 3072461052496207491
+    second: dragonFang_5
+  - first:
+      213: -3235768515844288262
+    second: dragonFang_6
+  - first:
+      213: 7192459507719164980
+    second: dragonFang_7
+  - first:
+      213: -7771740838580064623
+    second: dragonFang_8
+  - first:
+      213: 8703339341753844982
+    second: dragonFang_9
+  - first:
+      213: -3510393461244716301
+    second: dragonFang_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dragonFang_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 31
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5773d06cdf42ee090800000000000000
+      internalID: -8003418815422711947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 30
+        width: 49
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf0b70ff0c9d6a00800000000000000
+      internalID: 751428305113780141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 30
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e907def3fd338b0800000000000000
+      internalID: -5173546081259053409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 30
+        width: 61
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca31489bb09fa3600800000000000000
+      internalID: 448944941629182892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 30
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3475543fa8985b0800000000000000
+      internalID: -5365604703590202463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_5
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 30
+        width: 70
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e52447c0393aa20800000000000000
+      internalID: 3072461052496207491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_6
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 27
+        width: 73
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af055bdbdad3813d0800000000000000
+      internalID: -3235768515844288262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 21
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4345bf2a0dfb0d360800000000000000
+      internalID: 7192459507719164980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_8
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 15
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ee90e32ea352490800000000000000
+      internalID: -7771740838580064623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_9
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 9
+        width: 74
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f48be0e40978c870800000000000000
+      internalID: 8703339341753844982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonFang_10
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 9
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa97a0feb3984fc0800000000000000
+      internalID: -3510393461244716301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
