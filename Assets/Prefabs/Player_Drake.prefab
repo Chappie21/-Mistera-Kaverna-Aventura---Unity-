@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b726659025f54254e92f5b5fde691f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saltoVelocidad: 4
+  saltoVelocidad: 7
   maxVelocidad: 3
   animator: {fileID: 7372926703786639239}
   Dashing: 0
