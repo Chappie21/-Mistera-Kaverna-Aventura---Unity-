@@ -1,14 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
-{
+{   
+    private Rigidbody2D rg;
     public LayerMask enemiesLayer;
     public PlayerController player;
     private int damageP;
+    private Color color;
+    private Renderer render;
 
     private void Start()
     {
         player = GetComponentInParent<PlayerController>();
+        this.rg = GetComponent<Rigidbody2D>();
+        this.render = GetComponent<Renderer>();
+        this.color = this.render.material.color;
+
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -16,8 +25,20 @@ public class PlayerCollision : MonoBehaviour
         {
             damageP = col.gameObject.GetComponent<Enemy>().damage;
             player.damagePlayer(damageP);
-            Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-            rb.AddForce(Vector2.left * 100);
+            StartCoroutine("Invulnerable");
         }
+    }
+
+    private IEnumerator Invulnerable(){
+
+        Physics2D.IgnoreLayerCollision(6, 8, true); // desactivar colisiones con enemigos
+        this.color.a = 0.5f;
+        this.render.material.color = this.color;
+
+        yield return new WaitForSeconds(3f);
+        Physics2D.IgnoreLayerCollision(6, 8, false); // reactivar colisiones con enemigos
+        this.color.a = 1f;
+        this.render.material.color = this.color;
+
     }
 }
