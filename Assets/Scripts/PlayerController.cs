@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public static int concentracion = 0;
     private bool CollisionEnemy = false;
 
-    // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
     public Animator animator;
 
     // *Salto*
@@ -48,7 +47,6 @@ public class PlayerController : MonoBehaviour
         movVertical = Input.GetAxisRaw("Vertical");
 
         this.animator.SetBool("Dashing", this.Dashing);
-
     }
 
     // Aqui van los cambios al personaje
@@ -57,10 +55,11 @@ public class PlayerController : MonoBehaviour
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
 
         // ! Si el jugador colisiona con un enemigo, este no podrá moverse por un periodo de tiempo
-        if(!this.CollisionEnemy){
+        if (!this.CollisionEnemy)
+        {
 
             // Si se está atacando o haciendo dash, no mover al jugador
-            if (!playerCombate.isAttacking && !this.Dashing)
+            if (!playerCombate.Attacking() && !this.Dashing)
             {
                 rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
                 if (movVertical > 0 && isSuelo == true)
@@ -78,7 +77,12 @@ public class PlayerController : MonoBehaviour
             }
         }
         // Actualizar los parámetros para que funcionen las animaciones
-        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.magnitude));
+        if (playerCombate.Attacking())
+        {
+            animator.SetFloat("Velocidad", 0);
+            return;
+        }
+        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.x));
         animator.SetBool("isSuelo", isSuelo);
     }
 
@@ -111,24 +115,32 @@ public class PlayerController : MonoBehaviour
     }
 
     // Obtener orientacion horizontal del jugador
-    public float GetPlayerAxis(){
+    public float GetPlayerAxis()
+    {
         return this.movHorizontal;
     }
 
     // establecer colision con enemigo del jugador
-    public void SetEnemyCollision(bool collision){
+    public void SetEnemyCollision(bool collision)
+    {
         this.CollisionEnemy = collision;
     }
 
     // Establecer tiempo de colision con enemigo evitando movimiento del jugador
-    public void TempCollision(float Time){
+    public void TempCollision(float Time)
+    {
         this.SetEnemyCollision(true);
         Invoke("DisableCollision", Time);
     }
 
     // ! Quitar colision con enemigo
-    private void DisableCollision(){
+    private void DisableCollision()
+    {
         this.SetEnemyCollision(false);
     }
 
+    public float getMovH()
+    {
+        return movHorizontal;
+    }
 }
