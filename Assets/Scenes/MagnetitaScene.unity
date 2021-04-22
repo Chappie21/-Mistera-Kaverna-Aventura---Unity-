@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhantomEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7235021066590103706, guid: e34bdfeea08bfd740bf41ca33ccd9966, type: 3}
+      propertyPath: vidaMaxima
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7235021066590103707, guid: e34bdfeea08bfd740bf41ca33ccd9966, type: 3}
       propertyPath: m_RootOrder
       value: 3
