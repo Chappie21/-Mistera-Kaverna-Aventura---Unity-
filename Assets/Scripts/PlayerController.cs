@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,8 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool mirandoDerecha = true;
 
     public static int concentracion = 0;
+    private bool CollisionEnemy = false;
 
-    // Manejar las animaciones, mirar la ventana "Animator" para observar las animaciones
     public Animator animator;
 
     // *Salto*
@@ -46,32 +47,42 @@ public class PlayerController : MonoBehaviour
         movVertical = Input.GetAxisRaw("Vertical");
 
         this.animator.SetBool("Dashing", this.Dashing);
-
     }
 
     // Aqui van los cambios al personaje
     void FixedUpdate()
     {
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
-        // Si se está atacando, no mover al jugador
-        if (!playerCombate.isAttacking && !this.Dashing)
+
+        // ! Si el jugador colisiona con un enemigo, este no podrá moverse por un periodo de tiempo
+        if (!this.CollisionEnemy)
         {
-            rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
-            if (movVertical > 0 && isSuelo == true)
+
+            // Si se está atacando o haciendo dash, no mover al jugador
+            if (!playerCombate.Attacking() && !this.Dashing)
             {
-                rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+                rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
+                if (movVertical > 0 && isSuelo == true)
+                {
+                    rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+                }
+            }
+            if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
+            {
+                Voltear();
+            }
+            if (mirandoDerecha == false && rigidBody2D.velocity.x > 0)
+            {
+                Voltear();
             }
         }
-        if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
-        {
-            Voltear();
-        }
-        if (mirandoDerecha == false && rigidBody2D.velocity.x > 0)
-        {
-            Voltear();
-        }
         // Actualizar los parámetros para que funcionen las animaciones
-        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.magnitude));
+        if (playerCombate.Attacking())
+        {
+            animator.SetFloat("Velocidad", 0);
+            return;
+        }
+        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.x));
         animator.SetBool("isSuelo", isSuelo);
     }
 
@@ -97,9 +108,39 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Obtener hacia donde "Mira" el jugador
     public bool getVista()
     {
         return this.mirandoDerecha;
     }
 
+    // Obtener orientacion horizontal del jugador
+    public float GetPlayerAxis()
+    {
+        return this.movHorizontal;
+    }
+
+    // establecer colision con enemigo del jugador
+    public void SetEnemyCollision(bool collision)
+    {
+        this.CollisionEnemy = collision;
+    }
+
+    // Establecer tiempo de colision con enemigo evitando movimiento del jugador
+    public void TempCollision(float Time)
+    {
+        this.SetEnemyCollision(true);
+        Invoke("DisableCollision", Time);
+    }
+
+    // ! Quitar colision con enemigo
+    private void DisableCollision()
+    {
+        this.SetEnemyCollision(false);
+    }
+
+    public float getMovH()
+    {
+        return movHorizontal;
+    }
 }

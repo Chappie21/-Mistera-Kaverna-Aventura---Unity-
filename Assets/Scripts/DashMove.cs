@@ -37,10 +37,26 @@ public class DashMove : MonoBehaviour{
                     Physics2D.IgnoreLayerCollision(6, 8, true);
                     this.player.Dashing = true;
                     
-                    if(this.player.getVista()){
-                        this.direction = 1;
+                    float movX = this.player.GetPlayerAxis();
+
+                    /*
+                        En caso de que el jugador no este direccionando en X a drake,
+                        este realizará el dash a donde esté "Mirando"
+                    */
+                    if(movX == 0){
+                        if(this.player.getVista()){
+                            this.direction = 1;
+                        }else{
+                            this.direction = -1;
+                        }
                     }else{
-                        this.direction = -1;
+
+                        // En caso de movimiento Horizontal por parte del jugador
+                        if(movX == 1){
+                            this.direction = 1;
+                        }else{
+                            this.direction = -1;
+                        }
                     }
 
                 }

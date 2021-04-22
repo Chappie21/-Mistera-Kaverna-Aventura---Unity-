@@ -6,11 +6,14 @@ public class WeaponSwitch : MonoBehaviour
 {
     public GameObject activeWeapon;
     private GameObject weaponContainer;
+    public GameObject[] interactableWeapons;
+    public PlayerCombate playerCombate;
     private GameObject[] weapons;
     private int totalWeapons;
     private int weaponActualIndex = 0;
     void Start()
     {
+        playerCombate = GetComponentInParent<PlayerCombate>();
         weaponContainer = this.gameObject;
         totalWeapons = weaponContainer.transform.childCount;
         weapons = new GameObject[totalWeapons];
@@ -21,21 +24,23 @@ public class WeaponSwitch : MonoBehaviour
         }
         weapons[0].SetActive(true);
     }
-
-    void Update()
+    public void grabbedWeapon(GameObject weapon)
     {
-        if (Input.GetKeyDown(KeyCode.E) && weaponActualIndex < totalWeapons - 1)
+        foreach (var wp in weapons)
         {
-            weapons[weaponActualIndex].SetActive(false);
-            weaponActualIndex += 1;
-            weapons[weaponActualIndex].SetActive(true);
+            wp.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Q) && weaponActualIndex > 0)
+        for (int index = 0; index < weapons.Length; index++)
         {
-            weapons[weaponActualIndex].SetActive(false);
-            weaponActualIndex -= 1;
-            weapons[weaponActualIndex].SetActive(true);
+            if (weapons[index].name == weapon.name)
+            {
+                playerCombate.dropWeapon(weapons[weaponActualIndex]);
+                weaponActualIndex = index;
+                break;
+            }
         }
+        weapons[weaponActualIndex].SetActive(true);
         activeWeapon = weapons[weaponActualIndex];
     }
+
 }

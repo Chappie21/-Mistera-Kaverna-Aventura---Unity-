@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
-{   
+{
     private Rigidbody2D rg;
-    public LayerMask enemiesLayer;
-    public PlayerController player;
+    private PlayerController player;
     private int damageP;
     private Color color;
     private Renderer render;
+    public float PushX, PushY;
 
     private void Start()
     {
@@ -25,20 +25,37 @@ public class PlayerCollision : MonoBehaviour
         {
             damageP = col.gameObject.GetComponent<Enemy>().damage;
             player.damagePlayer(damageP);
+
+            this.player.TempCollision(0.7f); // Tiempo de collision en el cual el jugador no puedo moverse
+            PushPlayer(col.collider.GetComponent<SpriteRenderer>().flipX); // ! empujar al jugador
             StartCoroutine("Invulnerable");
         }
     }
-
-    private IEnumerator Invulnerable(){
+    private IEnumerator Invulnerable()
+    {
 
         Physics2D.IgnoreLayerCollision(6, 8, true); // desactivar colisiones con enemigos
         this.color.a = 0.5f;
         this.render.material.color = this.color;
-
         yield return new WaitForSeconds(3f);
         Physics2D.IgnoreLayerCollision(6, 8, false); // reactivar colisiones con enemigos
         this.color.a = 1f;
         this.render.material.color = this.color;
+
+    }
+
+    // * Empujar al jugador según hacia donde esté mirando el enemigo
+    private void PushPlayer(bool flipX)
+    {
+
+        if (!flipX)
+        {
+            this.rg.velocity = new Vector2(PushX, PushY); // empujar a la derecha
+        }
+        else
+        {
+            this.rg.velocity = new Vector2(-PushX, PushY); // empujar a la izquierda
+        }
 
     }
 }

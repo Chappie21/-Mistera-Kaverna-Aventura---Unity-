@@ -4,49 +4,67 @@ using UnityEngine;
 public class PlayerCombate : MonoBehaviour
 {
     private Rigidbody2D player;
-    public Animator animator;
-    public bool isAttacking;
+    private PlayerController playerController;
+    private float direction = 1f;
+    private bool isAttacking = false;
     private float attackTime;
+    private Animator animator;
     private AnimatorOverrideController animatorOverrideController;
-    private WeaponSwitch weaponContainer;
+    private WeaponSwitch weaponSwitch;
     private Weapon activeWeapon;
+    public float attackImpulse;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-        weaponContainer = GetComponentInChildren<WeaponSwitch>();
+        playerController = GetComponent<PlayerController>();
+        weaponSwitch = GetComponentInChildren<WeaponSwitch>();
         animator = GetComponent<Animator>();
         animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = animatorOverrideController;
     }
     private void Update()
     {
-        activeWeapon = weaponContainer.activeWeapon.GetComponent<Weapon>();
+        activeWeapon = weaponSwitch.activeWeapon.GetComponent<Weapon>();
         attackTime = 1 / activeWeapon.velocidadAtaque;
-        if (Input.GetButton("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
         {
             animatorOverrideController["AtaquePorDefecto"] = activeWeapon.animationClip;
             activeWeapon.Attack();
             isAttacking = true;
             StartCoroutine(finalizeAttacking(attackTime));
         }
+        if (Mathf.Abs(playerController.getMovH()) > 0)
+        {
+            direction = playerController.getMovH();
+        }
     }
     private void FixedUpdate()
     {
         if (isAttacking)
         {
-            if (Mathf.Abs(player.velocity.y) > 0)
-            {
-                player.velocity = Vector2.zero;
-            }
-            else
-            {
-                player.velocity = new Vector2(0, player.velocity.y);
-            }
+            player.velocity = new Vector2(direction * attackImpulse, player.velocity.y);
         }
     }
     IEnumerator finalizeAttacking(float attackTime)
     {
         yield return new WaitForSeconds(attackTime);
         isAttacking = false;
+    }
+
+    public bool Attacking()
+    {
+        return isAttacking;
+    }
+    public void dropWeapon(GameObject weapon)
+    {
+        foreach (var intWeapon in weaponSwitch.interactableWeapons)
+        {
+            if (intWeapon.name == weapon.name)
+            {
+                Vector2 randomDir = new Vector2(Random.Range(-1f, 1f) * 3, 5);
+                GameObject droppedWeapon = Instantiate(intWeapon, new Vector2(player.transform.position.x, player.transform.position.y + 1), player.transform.rotation);
+                droppedWeapon.GetComponent<Rigidbody2D>().AddForce(randomDir, ForceMode2D.Impulse);
+            }
+        }
     }
 }

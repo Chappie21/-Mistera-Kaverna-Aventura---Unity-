@@ -15,7 +15,10 @@ public class Weapon : MonoBehaviour
         Collider2D[] hittedEnemies = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemiesLayer);
         foreach (Collider2D enemy in hittedEnemies)
         {
+            PlayerController.concentracion++;
+            BarraConcentracion.contadorConcentracion = 0;
             enemy.GetComponent<Enemy>().RecibirAtaque(damage);
+            CinemachineShake.Instance.ShakeCamera(0.85f, .3f);
         }
     }
 
