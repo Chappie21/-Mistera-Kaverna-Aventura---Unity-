@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         movVertical = Input.GetAxisRaw("Vertical");
 
         this.animator.SetBool("Dashing", this.Dashing);
+        this.animator.SetFloat("VelocidadY", Mathf.Abs(this.rigidBody2D.velocity.y));
     }
 
     // Aqui van los cambios al personaje
@@ -118,6 +119,10 @@ public class PlayerController : MonoBehaviour
     public float GetPlayerAxis()
     {
         return this.movHorizontal;
+    }
+
+    public float GetPlayerAxisY(){
+        return this.movVertical;
     }
 
     // establecer colision con enemigo del jugador
