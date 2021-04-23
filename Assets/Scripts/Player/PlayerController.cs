@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public AudioSource audioDanoJugador;
+    public AudioSource audioMuerteJugador;
+
     private Rigidbody2D rigidBody2D;
 
     // Variables globales, si son públicas se pueden cambiar desde Unity
@@ -96,9 +100,12 @@ public class PlayerController : MonoBehaviour
 
     public void damagePlayer(int damageRecieved)
     {
+        audioDanoJugador.Play();
         vidaActual -= damageRecieved;
         if (vidaActual <= 0)
         {
+            //audioMuerteJugador.Play();
+            audioDanoJugador.Play();
             Die();
         }
     }

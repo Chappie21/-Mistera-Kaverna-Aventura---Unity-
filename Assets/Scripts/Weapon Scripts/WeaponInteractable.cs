@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponInteractable : MonoBehaviour
 {
+    public AudioSource audioDropeoArma;
     private PlayerController player;
     private WeaponSwitch weaponSwitch;
     private void Start()
@@ -13,6 +14,7 @@ public class WeaponInteractable : MonoBehaviour
     }
     public void Collect()
     {
+        audioDropeoArma.Play();
         gameObject.name = gameObject.name.Replace("(Clone)", "");
         weaponSwitch.grabbedWeapon(gameObject);
         Destroy(gameObject);
