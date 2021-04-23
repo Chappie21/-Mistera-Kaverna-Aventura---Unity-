@@ -8,9 +8,12 @@ public class BarraConcentracion : MonoBehaviour
 
     public Slider slider;
     public GameObject avisoConcentracion;
+    public AudioSource audioBarraConcentracionLlena;
+    public AudioSource audioBarraConcentracionUsada;
     
     //ESTE CONTADOR AUMENTARA CADA SEGUNDO HASTA LLEGAR A 5, LLEGADO A 5 SE DECREMENTARA LA CONCENTRACION
     public static int contadorConcentracion = 0;
+    private bool audioReproducido = false;
 
     // Start is called before the first frame update
 
@@ -37,16 +40,17 @@ public class BarraConcentracion : MonoBehaviour
                 }
             }
         }
-
         if(PlayerController.concentracion==10){
             avisoConcentracion.SetActive(true);
+            reproducirAudio();
         }
         else if(PlayerController.concentracion!=10){
+            audioReproducido = false;
             avisoConcentracion.SetActive(false);
         }
 
         if(PlayerController.concentracion==10 && Input.GetKeyDown(KeyCode.V)){
-            Debug.Log("Aqui");
+            audioBarraConcentracionUsada.Play();
             PlayerController.vidaActual=PlayerController.vidaActual+20;
             if(PlayerController.vidaActual>=100){
                 PlayerController.vidaActual=100;
@@ -54,6 +58,13 @@ public class BarraConcentracion : MonoBehaviour
             PlayerController.concentracion=0;
         }
 
+    }
+
+    void reproducirAudio(){
+        if (!audioReproducido) {
+            audioReproducido = true;
+            audioBarraConcentracionLlena.Play();
+        }
     }
 
 }
