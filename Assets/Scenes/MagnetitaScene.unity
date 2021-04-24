@@ -17697,6 +17697,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5172b97ce4eaa0d4fa2785be6c187816, type: 3}
+    - target: {fileID: 4248032671003694974, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 570
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248032671003694974, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 323
+      objectReference: {fileID: 0}
     - target: {fileID: 4248032671341473221, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -17753,6 +17761,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1702395897}
+    - target: {fileID: 4248032671735262961, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4248032671735262962, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
       propertyPath: musicaFondo
       value: 
@@ -18012,6 +18024,14 @@ PrefabInstance:
     - target: {fileID: 4248032672637095629, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248032672844357534, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -657
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248032672844357534, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 310
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738a6cf8ad8962e43aebd12554368ffc, type: 3}
