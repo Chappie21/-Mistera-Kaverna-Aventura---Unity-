@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 342762041}
   - component: {fileID: 11148177}
   - component: {fileID: 633793926}
+  - component: {fileID: 83854979}
   m_Layer: 6
   m_Name: Player_Drake
   m_TagString: Player
@@ -585,7 +586,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -670,9 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b726659025f54254e92f5b5fde691f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDanoJugador: {fileID: 0}
-  audioMuerteJugador: {fileID: 0}
-  saltoVelocidad: 7
+  saltoVelocidad: 9
   maxVelocidad: 3
   animator: {fileID: 7372926703786639239}
   dashing: 0
@@ -682,6 +681,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   deadParticulas: {fileID: 353394445526403914, guid: e7ce52be0d981744980a792d637fe6c0, type: 3}
+  posicion: {x: 0, y: 0, z: 0}
 --- !u!114 &437383254101357628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,6 +841,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &83854979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372926703786638970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529bc317e0e09b248997dee5e5c9a3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  espera: 2
 --- !u!1 &7372926705448598801
 GameObject:
   m_ObjectHideFlags: 0
