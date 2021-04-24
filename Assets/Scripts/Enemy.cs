@@ -5,16 +5,16 @@ using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource audioDanoEnemigo;
+    public AudioSource audioMuerteEnemigo;
+
     public int damage = 20;
     public int vidaMaxima = 100;
     private int vidaActual;
     public GameObject deadParticulas;
     private Rigidbody2D enemyObj;
-    public Animator animator;
-    public AIPath path;
 
     private SpriteRenderer sprite;
-
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +22,6 @@ public class Enemy : MonoBehaviour
         vidaActual = vidaMaxima;
         enemyObj = GetComponentInParent<Rigidbody2D>();
         this.sprite = GetComponent<SpriteRenderer>();
-        
-    }
-    
-    void Update() {
-
-        this.Direction(); // Cambiar direccion del
-        this.animator.SetFloat("Velocity", Mathf.Abs(this.path.desiredVelocity.x));
 
     }
 
@@ -38,19 +31,14 @@ public class Enemy : MonoBehaviour
         Debug.Log($"Vida enemigo = {vidaActual}");
         if (vidaActual <= 0)
         {
+            AudioMngr.Play("muerteEnemigo");
             Die();
         }
-    }
+        else
+        {
 
-    // Activar flipX del enemigo en base a su deplazamiento horizontal (persecucion)
-    private void Direction(){
-
-        if(this.path.velocity.x >= 0.1){
-           this.sprite.flipX = false;
-        }else if(this.path.velocity.x <= -0.1){
-            this.sprite.flipX = true;
+            AudioMngr.Play("danoEnemigo");
         }
-
     }
 
     void Die()

@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public bool inRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public GameObject interactableButton;
     private string weaponName;
 
     private void Update()
@@ -24,6 +25,7 @@ public class Interactable : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            interactableButton.SetActive(true);
             inRange = true;
         }
     }
@@ -31,6 +33,7 @@ public class Interactable : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            interactableButton.SetActive(false);
             inRange = false;
         }
     }
