@@ -5,7 +5,7 @@ using UnityEngine;
 public class gravity : MonoBehaviour
 {
     private Rigidbody2D cuerpo;
-    public int gravedad;
+    public float gravedad;
     private PlayerController jugador;
 
    

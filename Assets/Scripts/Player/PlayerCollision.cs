@@ -31,6 +31,7 @@ public class PlayerCollision : MonoBehaviour
             StartCoroutine("Invulnerable");
         }
     }
+   
     private IEnumerator Invulnerable()
     {
 
