@@ -88,9 +88,11 @@ public class PlayerController : MonoBehaviour
 
     public void damagePlayer(int damageRecieved)
     {
+        AudioMngr.Play("danoPlayer");
         vidaActual -= damageRecieved;
         if (vidaActual <= 0)
         {
+            AudioMngr.Play("muertePlayer");
             Die();
         }
     }

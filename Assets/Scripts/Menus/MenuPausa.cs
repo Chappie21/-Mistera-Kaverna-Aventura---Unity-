@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     public GameObject menuPausa;
+    public GameObject vistaControles;
     public AudioSource musicaFondo;
+    public AudioSource musicaMenupausa;
     public static bool juegoPausado;
 
     // Start is called before the first frame update
     void Start()
     {
         menuPausa.SetActive(false);
+        vistaControles.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale=0f;
         juegoPausado=true;
         musicaFondo.Pause();
+        musicaMenupausa.Play();
     }
 
     public void ReanudarJuego()
@@ -45,6 +49,7 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale=1f;
         juegoPausado=false;
         musicaFondo.Play(0);
+        musicaMenupausa.Stop();
 
     }
 
@@ -52,6 +57,14 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale=1f;
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void VerControles(){
+        vistaControles.SetActive(true);
+    }
+
+    public void SalirControles(){
+        vistaControles.SetActive(false);
     }
 
     public void SalirDelJuego()

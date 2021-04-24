@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScript : MonoBehaviour
 {
     public GameObject vistaGameOver;
-    public static bool jugadorMuerto;
+    //public static bool jugadorMuerto;
 
     void Start(){
         vistaGameOver.SetActive(false);

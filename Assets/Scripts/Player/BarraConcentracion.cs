@@ -11,8 +11,11 @@ public class BarraConcentracion : MonoBehaviour
 
     //ESTE CONTADOR AUMENTARA CADA SEGUNDO HASTA LLEGAR A 5, LLEGADO A 5 SE DECREMENTARA LA CONCENTRACION
     public static int contadorConcentracion = 0;
-    void Start()
-    {
+    public AudioSource audioBarraConcentracionLlena;
+    public AudioSource audioBarraConcentracionUsada;
+    private bool audioReproducido = false;
+
+    void Start(){
         avisoConcentracion.SetActive(false);
     }
     float proximoConteo = 0.0f;
@@ -44,14 +47,17 @@ public class BarraConcentracion : MonoBehaviour
         if (PlayerController.concentracion == 10)
         {
             avisoConcentracion.SetActive(true);
+            reproducirAudio();
         }
         else if (PlayerController.concentracion != 10)
         {
+            audioReproducido = false;
             avisoConcentracion.SetActive(false);
         }
 
         if (PlayerController.concentracion == 10 && Input.GetKeyDown(KeyCode.V))
         {
+            audioBarraConcentracionUsada.Play();
             PlayerController.vidaActual = PlayerController.vidaActual + 20;
             if (PlayerController.vidaActual >= 100)
             {
@@ -60,4 +66,12 @@ public class BarraConcentracion : MonoBehaviour
             PlayerController.concentracion = 0;
         }
     }
+
+    void reproducirAudio(){
+        if (!audioReproducido) {
+            audioReproducido = true;
+            audioBarraConcentracionLlena.Play();
+        }
+    }
+
 }

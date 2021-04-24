@@ -5,6 +5,9 @@ using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource audioDanoEnemigo;
+    public AudioSource audioMuerteEnemigo;
+
     public int damage = 20;
     public int vidaMaxima = 100;
     private int vidaActual;
@@ -28,7 +31,13 @@ public class Enemy : MonoBehaviour
         Debug.Log($"Vida enemigo = {vidaActual}");
         if (vidaActual <= 0)
         {
+            AudioMngr.Play("muerteEnemigo");
             Die();
+        }
+        else
+        {
+
+            AudioMngr.Play("danoEnemigo");
         }
     }
 

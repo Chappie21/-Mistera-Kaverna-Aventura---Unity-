@@ -15,6 +15,7 @@ public class WeaponInteractable : MonoBehaviour
     public void Collect()
     {
         Instantiate(grabbedParticles, this.transform.position, this.transform.rotation);
+        AudioMngr.Play("desenfundeArma");
         gameObject.name = gameObject.name.Replace("(Clone)", "");
         weaponSwitch.grabbedWeapon(gameObject);
         Destroy(gameObject);

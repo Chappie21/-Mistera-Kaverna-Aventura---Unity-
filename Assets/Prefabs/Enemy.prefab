@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe913ec3ddb0cd498b716dc4470502f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioDanoEnemigo: {fileID: 0}
+  audioMuerteEnemigo: {fileID: 0}
   damage: 20
   vidaMaxima: 50
   deadParticulas: {fileID: 5479056674366883120, guid: 0ad1d30e01b1299448be775ac15177a8, type: 3}
