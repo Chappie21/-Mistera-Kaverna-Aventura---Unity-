@@ -56,26 +56,22 @@ public class PlayerController : MonoBehaviour
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
 
         // ! Si el jugador colisiona con un enemigo, este no podrá moverse por un periodo de tiempo
-        if (!this.CollisionEnemy)
+        // Si se está atacando o haciendo dash, no mover al jugador
+        if (!playerCombate.Attacking() && !this.Dashing && !this.CollisionEnemy)
         {
-
-            // Si se está atacando o haciendo dash, no mover al jugador
-            if (!playerCombate.Attacking() && !this.Dashing)
+            rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
+            if (movVertical > 0 && isSuelo == true)
             {
-                rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
-                if (movVertical > 0 && isSuelo == true)
-                {
-                    rigidBody2D.velocity = Vector2.up * saltoVelocidad;
-                }
+                rigidBody2D.velocity = Vector2.up * saltoVelocidad;
             }
-            if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
-            {
-                Voltear();
-            }
-            if (mirandoDerecha == false && rigidBody2D.velocity.x > 0)
-            {
-                Voltear();
-            }
+        }
+        if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
+        {
+            Voltear();
+        }
+        if (mirandoDerecha == false && rigidBody2D.velocity.x > 0)
+        {
+            Voltear();
         }
         // Actualizar los parámetros para que funcionen las animaciones
         if (playerCombate.Attacking())
@@ -121,7 +117,8 @@ public class PlayerController : MonoBehaviour
         return this.movHorizontal;
     }
 
-    public float GetPlayerAxisY(){
+    public float GetPlayerAxisY()
+    {
         return this.movVertical;
     }
 

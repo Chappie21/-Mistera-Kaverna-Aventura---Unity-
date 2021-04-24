@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private Rigidbody2D rg;
+    private Rigidbody2D rb;
     private PlayerController player;
     private int damageP;
     private Color color;
@@ -14,7 +14,7 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
         player = GetComponentInParent<PlayerController>();
-        this.rg = GetComponent<Rigidbody2D>();
+        this.rb = GetComponent<Rigidbody2D>();
         this.render = GetComponent<Renderer>();
         this.color = this.render.material.color;
 
@@ -26,8 +26,8 @@ public class PlayerCollision : MonoBehaviour
             damageP = col.gameObject.GetComponent<Enemy>().damage;
             player.damagePlayer(damageP);
 
-            this.player.TempCollision(0.7f); // Tiempo de collision en el cual el jugador no puedo moverse
-            PushPlayer(col.collider.GetComponent<SpriteRenderer>().flipX); // ! empujar al jugador
+            this.player.TempCollision(0.5f); // Tiempo de collision en el cual el jugador no puedo moverse
+            PushPlayer(col.transform);
             StartCoroutine("Invulnerable");
         }
     }
@@ -45,17 +45,15 @@ public class PlayerCollision : MonoBehaviour
     }
 
     // * Empujar al jugador según hacia donde esté mirando el enemigo
-    private void PushPlayer(bool flipX)
+    private void PushPlayer(Transform enemy)
     {
-
-        if (!flipX)
+        if (enemy.transform.position.x > player.transform.position.x)
         {
-            this.rg.velocity = new Vector2(PushX, PushY); // empujar a la derecha
+            rb.AddForce(new Vector2(-PushX, PushY), ForceMode2D.Impulse);
         }
         else
         {
-            this.rg.velocity = new Vector2(-PushX, PushY); // empujar a la izquierda
+            rb.AddForce(new Vector2(PushX, PushY), ForceMode2D.Impulse);
         }
-
     }
 }
