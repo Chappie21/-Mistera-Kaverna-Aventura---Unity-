@@ -22,11 +22,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        // this.animator.SetFloat("Velocity", Mathf.Abs(this.path.desiredVelocity.x));
-    }
-
     public void RecibirAtaque(int damage)
     {
         vidaActual -= damage;
