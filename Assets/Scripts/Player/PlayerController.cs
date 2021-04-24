@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private PlayerCombate playerCombate;
     public GameObject deadParticulas;
 
+    //posicion actual
+    public Vector3 posicion;
+
     void Awake()
     {
         // Obtener el cuerpo del jugador
@@ -56,7 +59,25 @@ public class PlayerController : MonoBehaviour
             rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
             if (movVertical > 0 && isSuelo == true)
             {
-                rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+                rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
+                if (movVertical > 0 && isSuelo == true)
+                {
+                    rigidBody2D.velocity = Vector2.up * saltoVelocidad;
+                }
+                //necesario para player_end_world
+                else if (isSuelo)
+                {
+                    posicion = this.transform.position;
+                }
+
+            }
+            if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
+            {
+                Voltear();
+            }
+            if (mirandoDerecha == false && rigidBody2D.velocity.x > 0)
+            {
+                Voltear();
             }
         }
         if (mirandoDerecha == true && rigidBody2D.velocity.x < 0)
