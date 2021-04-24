@@ -13,16 +13,12 @@ public class PlayerController : MonoBehaviour
     private float movHorizontal = 0f;
     private float movVertical = 0f;
     private bool mirandoDerecha = true;
+    public Animator animator;
 
     public static int concentracion = 0;
     private bool CollisionEnemy = false;
-
-    public Animator animator;
-
-    // *Salto*
-    // Dentro de Unity se creo un objeto "checkSuelo" pegado al jugador para saber si toca el suelo
     private bool isSuelo;
-    public bool Dashing;
+    public bool dashing;
     public Transform checkSuelo;
     public float checkRadio;
     public LayerMask objetosSuelo;
@@ -46,18 +42,16 @@ public class PlayerController : MonoBehaviour
         // ^ si se presiona "a" o "flechaIzq" retorna -1, y si se presiona "d" o "flechaDer" retorna 1 
         movVertical = Input.GetAxisRaw("Vertical");
 
-        this.animator.SetBool("Dashing", this.Dashing);
-        this.animator.SetFloat("VelocidadY", Mathf.Abs(this.rigidBody2D.velocity.y));
+        this.animator.SetBool("Dashing", this.dashing);
     }
 
     // Aqui van los cambios al personaje
     void FixedUpdate()
     {
         isSuelo = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, objetosSuelo);
-
         // ! Si el jugador colisiona con un enemigo, este no podrá moverse por un periodo de tiempo
         // Si se está atacando o haciendo dash, no mover al jugador
-        if (!playerCombate.Attacking() && !this.Dashing && !this.CollisionEnemy)
+        if (!playerCombate.Attacking() && !this.dashing && !this.CollisionEnemy)
         {
             rigidBody2D.velocity = new Vector3(maxVelocidad * movHorizontal, rigidBody2D.velocity.y);
             if (movVertical > 0 && isSuelo == true)
@@ -76,10 +70,11 @@ public class PlayerController : MonoBehaviour
         // Actualizar los parámetros para que funcionen las animaciones
         if (playerCombate.Attacking())
         {
-            animator.SetFloat("Velocidad", 0);
+            animator.SetFloat("VelocidadX", 0);
             return;
         }
-        animator.SetFloat("Velocidad", Mathf.Abs(rigidBody2D.velocity.x));
+        this.animator.SetFloat("VelocidadY", rigidBody2D.velocity.y);
+        animator.SetFloat("VelocidadX", Mathf.Abs(rigidBody2D.velocity.x));
         animator.SetBool("isSuelo", isSuelo);
     }
 
@@ -111,15 +106,19 @@ public class PlayerController : MonoBehaviour
         return this.mirandoDerecha;
     }
 
-    // Obtener orientacion horizontal del jugador
-    public float GetPlayerAxis()
+    public float getPlayerAxis()
     {
         return this.movHorizontal;
     }
 
-    public float GetPlayerAxisY()
+    public float getPlayerAxisY()
     {
         return this.movVertical;
+    }
+
+    public bool isInGround()
+    {
+        return isSuelo;
     }
 
     // establecer colision con enemigo del jugador
@@ -141,8 +140,4 @@ public class PlayerController : MonoBehaviour
         this.SetEnemyCollision(false);
     }
 
-    public float getMovH()
-    {
-        return movHorizontal;
-    }
 }

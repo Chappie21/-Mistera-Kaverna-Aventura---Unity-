@@ -33,14 +33,15 @@ public class PlayerCombate : MonoBehaviour
             isAttacking = true;
             StartCoroutine(finalizeAttacking(attackTime));
         }
-        if (Mathf.Abs(playerController.getMovH()) > 0)
+        // Dirección a empujar el jugador
+        if (Mathf.Abs(playerController.getPlayerAxis()) > 0)
         {
-            direction = playerController.getMovH();
+            direction = playerController.getPlayerAxis();
         }
     }
     private void FixedUpdate()
     {
-        if (isAttacking)
+        if (isAttacking && !playerController.dashing)
         {
             player.velocity = new Vector2(direction * attackImpulse, player.velocity.y);
         }

@@ -21,7 +21,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == 8 && !this.player.Dashing)
+        if (col.gameObject.layer == 8 && !this.player.dashing)
         {
             damageP = col.gameObject.GetComponent<Enemy>().damage;
             player.damagePlayer(damageP);
